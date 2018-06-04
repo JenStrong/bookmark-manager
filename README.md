@@ -9,7 +9,11 @@
 
 ## User Stories
 ```
-As a user
+As a time-pressed user
 So that I can see my favorite websites
-I want to see a list of bookmarks
+I want to see a list of bookmarks on the homepage
+
+As a time-pressed user
+So that I can save a website
+I would like to add the site's address and title to bookmark manager
 ```
