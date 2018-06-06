@@ -30,7 +30,7 @@ describe Bookmark do
     it 'does not create a new bookmark if the URL is invalid' do
       Bookmark.create(url: 'not a valid URL')
 
-      expect(Bookmark.all).not_to include 'not a valid url'  
+      expect(Bookmark.all).not_to include 'not a valid url'
     end
   end
 end

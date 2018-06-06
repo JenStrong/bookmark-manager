@@ -53,6 +53,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   pg
+  rack
   rspec
   sinatra
   sinatra-flash

@@ -20,7 +20,6 @@ class Bookmark
     end
 
     return false unless is_url?(options[:url])
-    #DatabaseConnection.query("INSERT INTO bookmarks (url) VALUES('#{options[:url]}')")
     connection.exec("INSERT INTO bookmarks (url) VALUES('#{options[:url]}')")
   end
 
