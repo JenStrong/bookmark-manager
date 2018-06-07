@@ -42,4 +42,13 @@ describe Bookmark do
       expect(bookmark_1).to eq (bookmark_2)
     end
   end
+
+  # describe '.delete' do
+  #   it 'deletes a bookmark from the database' do
+  #     bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: "Test Bookmark")
+  #     Bookmark.delete(bookmark)
+  #
+  #     expect(Bookmark.all).not_to include bookmark
+  #   end
+  # end
 end
