@@ -37,27 +37,17 @@ class Bookmark
     Bookmark.new(result.first['id'], result.first['url'], result.first['title'])
   end
 
+  def self.delete(options)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+
+    connection.exec("DELETE FROM bookmarks WHERE id =('#{options[:id]}')")
+  end
+
   def self.is_url?(url)
     url =~ /\A#{URI::regexp(['http', 'https'])}\z/
   end
-
-  # def self.delete(options)
-  #   if ENV['ENVIRONMENT'] == 'test'
-  #     connection = PG.connect(dbname: 'bookmark_manager_test')
-  #   else
-  #     connection = PG.connect(dbname: 'bookmark_manager')
-  #   end
-  #
-  #   connection.exec("DELETE * FROM bookmarks WHERE TITLE=('#{options[:title]}')")
-  # end
-
-  # def self.find(options)
-  #   if ENV['ENVIRONMENT'] == 'test'
-  #     connection = PG.connect(dbname: 'bookmark_manager_test')
-  #   else
-  #     connection = PG.connect(dbname: 'bookmark_manager')
-  #   end
-  #
-  #   connection.exec("SELECT * FROM bookmarks WHERE TITLE=('#{options[:title]}')")
-  # end
 end
