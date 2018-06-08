@@ -1,9 +1,10 @@
 feature 'update a saved bookmark' do
   scenario 'a user changes the details of a bookmark'do
-    Bookmark.create(url: 'http://makersacademy.com',title: 'Makers Academy')
+    bookmark_1 = Bookmark.create(url: 'http://cnn.com',title: 'CNN')
+    bookmark_2 = Bookmark.create(url: 'http://makersacademy.com',title: 'Makers Academy')
     visit('/bookmarks')
 
-    within 'ul' do
+    within "#bookmark-#{bookmark_2.id}" do
       click_button 'Update'
     end
 
@@ -12,5 +13,6 @@ feature 'update a saved bookmark' do
     click_button('Submit')
 
     expect(page).to have_content('Star Tribune')
+    expect(page).to have_content('CNN')
   end
 end
