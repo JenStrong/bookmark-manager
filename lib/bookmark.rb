@@ -47,6 +47,16 @@ class Bookmark
     connection.exec("DELETE FROM bookmarks WHERE id =('#{options[:id]}')")
   end
 
+  def self.edit(options)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+
+    connection.exec("UPDATE bookmarks SET url=('#{options[:url]}'),title=('#{options[:title]}') WHERE id=('#{options[:id]}')")    
+  end
+
   def self.is_url?(url)
     url =~ /\A#{URI::regexp(['http', 'https'])}\z/
   end

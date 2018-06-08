@@ -1,5 +1,6 @@
-<h2> Add a new bookmark: </h2>
-<form action="/bookmarks/:id" method="post">
+<h2> Update a bookmark: </h2>
+<form action="/booksmarks/edit1" method="post">
+  <input id="hidden" type="hidden" name="id" value="<%=@id%>" />
 <p>Title:</p>
   <input type="text" name="title">
 <p>URL:</p>
